@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="35c13314-887d-4f6e-94fb-22898af5f980" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/TAPBO.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/.netbeans_automatic_build" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/.netbeans_update_resources" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/icon/insurance.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/icon/login.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/icon/servis.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/About$1.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/About$2$1.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/About$2.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/About.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/About.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Antrian.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Antrian.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/HomePage$1.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/HomePage$2.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/HomePage.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/HomePage.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/ImageDesktopPane.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Login$1$1.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Login$1.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Login.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Login.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Mekanik.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Mekanik.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Menu$1.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Menu$2.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Menu$3.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Menu$4.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Menu$5.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Menu.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Menu.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Sparepart.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/Sparepart.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/tapbo/TAPBO.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/manifest.mf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/nbproject/build-impl.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/nbproject/genfiles.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/nbproject/project.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/nbproject/project.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/icon/insurance.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/icon/login.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/icon/servis.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/About.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/About.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/Antrian.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/Antrian.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/HomePage.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/HomePage.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/ImageDesktopPane.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/Login.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/Login.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/Mekanik.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/Mekanik.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/Menu.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/Menu.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/Sparepart.form" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/Sparepart.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tapbo/TAPBO.java" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="About.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tapbo/About.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="About.form" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tapbo/About.form">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="200" />
+    <option name="y" value="20" />
+    <option name="width" value="734" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TAPBO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TAPBO" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="TAPBO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TAPBO" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="TAPBO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TAPBO" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tapbo" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="35c13314-887d-4f6e-94fb-22898af5f980" name="Default" comment="" />
+      <created>1528393777633</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1528393777633</updated>
+      <workItem from="1528393779582" duration="229000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="229000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3292517" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/tapbo/About.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tapbo/About.form">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
