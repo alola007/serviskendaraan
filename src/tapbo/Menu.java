@@ -5,7 +5,9 @@
  */
 package tapbo;
 
+import model.ImageDesktopPane;
 import java.util.Locale;
+import main.TAPBO;
 
 /**
  *
@@ -14,24 +16,35 @@ import java.util.Locale;
 public class Menu extends javax.swing.JFrame {
 
     static Menu instance = null;
-    static Antrian antrian = null;
+    static FormAntrian queue = null;
     static Sparepart sparepart = null;
     static Mekanik mekanik = null;
+    static Nota nota = null;
 
     /**
      * Creates new form Menu
      */
+    public static Menu getInstance() {
+        if (instance == null) {
+            instance = new Menu();
+        }
+        return instance;
+    }
+    
     public Menu() {
         initComponents();
 
-        antrian = antrian.getInstance();
-        this.dekstopPane.add(antrian);
+        queue = queue.getInstance();
+        this.dekstopPane.add(queue);
         
         sparepart = sparepart.getInstance();
         this.dekstopPane.add(sparepart);
         
         mekanik = mekanik.getInstance();
         this.dekstopPane.add(mekanik);
+        
+        nota = nota.getInstance();
+        this.dekstopPane.add(nota);
     }
 
     /**
@@ -55,7 +68,6 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         menuTransaksi = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
         menuTentang = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -117,10 +129,12 @@ public class Menu extends javax.swing.JFrame {
         menuTransaksi.setText("Transaksi");
 
         jMenuItem5.setText("Nota");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         menuTransaksi.add(jMenuItem5);
-
-        jMenuItem6.setText("Laporan");
-        menuTransaksi.add(jMenuItem6);
 
         jMenuBar1.add(menuTransaksi);
 
@@ -153,18 +167,18 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void antrianMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antrianMenuActionPerformed
-        antrian.setVisible(true);
-        antrian.setClosable(true);
+        queue.setVisible(true);
+//        antrian.setClosable(true);
     }//GEN-LAST:event_antrianMenuActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         sparepart.setVisible(true);
-        sparepart.setClosable(true);
+//        sparepart.setClosable(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         mekanik.setVisible(true);
-        mekanik.setClosable(true);
+//        mekanik.setClosable(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -172,6 +186,10 @@ public class Menu extends javax.swing.JFrame {
         about.setLocationRelativeTo(this);
         about.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        nota.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,7 +235,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenu menuAntrian;
     private javax.swing.JMenu menuMekanik;

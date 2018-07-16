@@ -5,6 +5,18 @@
  */
 package tapbo;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import main.TAPBO;
+import static main.TAPBO.con;
+import static main.TAPBO.pst;
+import static main.TAPBO.rs;
+import model.Spareparts;
+import model.SparepartsDAO;
+
 /**
  *
  * @author ALOLA
@@ -12,6 +24,7 @@ package tapbo;
 public class Sparepart extends javax.swing.JInternalFrame {
 
     static Sparepart instance = null;
+    SparepartsDAO spareDao;
 
     /**
      * Creates new form Sparepart
@@ -25,6 +38,58 @@ public class Sparepart extends javax.swing.JInternalFrame {
 
     public Sparepart() {
         initComponents();
+        daftar();
+    }
+
+    public void daftar() {
+        String kolom[] = {"Kode", "Nama", "Harga"};
+        DefaultTableModel dtm = new DefaultTableModel(null, kolom);
+        try {
+            String sql = "select * from spareparts";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                String kode_spare = rs.getString(1);
+                String nama_spare = rs.getString(2);
+                String harga_spare = rs.getString(3);
+                String data[] = {kode_spare, nama_spare, harga_spare};
+                dtm.addRow(data);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        spareTabel.setModel(dtm);
+    }
+
+    private void empty() {
+        fieldKode.setText("");
+        fieldNamas.setText("");
+        fieldHarga.setText("");
+        fieldKode.setEnabled(true);
+    }
+
+    private boolean Validasi() {
+        boolean Valid = true;
+        String Pesan = "Silahkan Cek Kembali Pengisian Data";
+
+        if (fieldKode.getText().equals("")) {
+            Pesan += "\nSilahkan Isi Kode";
+            Valid = false;
+        }
+        if (fieldNamas.getText().equals("")) {
+            Pesan += "\nSilahkan Isi Nama";
+            Valid = false;
+        }
+        if (fieldHarga.getText().equals("")) {
+            Pesan += "\nSilahkan Isi Harga";
+            Valid = false;
+        }
+
+        if (!Valid) {
+            JOptionPane.showMessageDialog(this, Pesan, "Error Form", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return Valid;
     }
 
     /**
@@ -37,7 +102,7 @@ public class Sparepart extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        spareTabel = new javax.swing.JTable();
         input = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -46,12 +111,13 @@ public class Sparepart extends javax.swing.JInternalFrame {
         fieldNamas = new javax.swing.JTextField();
         fieldHarga = new javax.swing.JTextField();
         button = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        insert = new javax.swing.JButton();
+        update = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+        cancel = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        spareTabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -59,7 +125,12 @@ public class Sparepart extends javax.swing.JInternalFrame {
                 "Kode", "Nama", "Harga"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        spareTabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                spareTabelMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(spareTabel);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel1.setText("KODE");
@@ -115,14 +186,32 @@ public class Sparepart extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jButton5.setText("Tambah");
+        insert.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        insert.setText("Tambah");
+        insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Ubah");
+        update.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        update.setText("Ubah");
+        update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Hapus");
+        delete.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        delete.setText("Hapus");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Batal");
+        cancel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        cancel.setText("Batal");
 
         javax.swing.GroupLayout buttonLayout = new javax.swing.GroupLayout(button);
         button.setLayout(buttonLayout);
@@ -130,73 +219,176 @@ public class Sparepart extends javax.swing.JInternalFrame {
             buttonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonLayout.createSequentialGroup()
                 .addGroup(buttonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(insert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(buttonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(update, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                    .addComponent(cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         buttonLayout.setVerticalGroup(
             buttonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(buttonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton1))
+                    .addComponent(insert)
+                    .addComponent(update))
                 .addGap(18, 18, 18)
                 .addGroup(buttonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(delete)
+                    .addComponent(cancel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton4.setText("Tutup");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
+        if (Validasi()) {
+            spareDao = new SparepartsDAO();
+            Spareparts spareparts = new Spareparts();
+            spareparts.setKode(fieldKode.getText());
+            spareparts.setNama(fieldNamas.getText());
+            spareparts.setHarga(Integer.valueOf(fieldHarga.getText()));
+
+//            Spareparts sparepartsa = new Spareparts();
+            if (spareparts != null) {
+                try {
+                    spareDao.insert(spareparts);
+                    daftar();
+                    JOptionPane.showMessageDialog(this, "Data telah berhasil disimpan.", "Simpan Data", JOptionPane.INFORMATION_MESSAGE);
+                    empty();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(this, "SQL ERROR: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_insertActionPerformed
+
+    private void spareTabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spareTabelMouseClicked
+        fieldKode.setEnabled(false);
+        try {
+            String kode = spareTabel.getValueAt(spareTabel.getSelectedRow(), 0).toString();
+            String sql = "SELECT * from spareparts where kode_spare = '" + kode + "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                kode = rs.getString("kode_spare");
+                fieldKode.setText(kode);
+                String nama = rs.getString("nama_spare");
+                fieldNamas.setText(nama);
+                String harga = rs.getString("harga_spare");
+                fieldHarga.setText(harga);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+    }//GEN-LAST:event_spareTabelMouseClicked
+
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        if (Validasi()) {
+            spareDao = new SparepartsDAO();
+            Spareparts spareparts = new Spareparts();
+            spareparts.setKode(fieldKode.getText());
+            spareparts.setNama(fieldNamas.getText());
+            spareparts.setHarga(Integer.valueOf(fieldHarga.getText()));
+
+            if (spareparts != null) {
+                try {
+                    spareDao.update(spareparts);
+                    daftar();
+                    JOptionPane.showMessageDialog(this, "Data berhasil di Update.", "Simpan Data", JOptionPane.INFORMATION_MESSAGE);
+                    empty();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(this, "SQL ERROR: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_updateActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        spareDao = new SparepartsDAO();
+        Spareparts spareparts = new Spareparts();
+        spareparts.setKode(fieldKode.getText());
+        spareparts.setNama(fieldNamas.getText());
+        spareparts.setHarga(Integer.valueOf(fieldHarga.getText()));
+
+        if (spareparts != null) {
+            try {
+                spareDao.delete(spareparts);
+                daftar();
+                JOptionPane.showMessageDialog(this, "Data Berhasil di Hapus");
+                empty();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "SQL ERROR: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_deleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel button;
+    private javax.swing.JButton cancel;
+    private javax.swing.JButton delete;
     private javax.swing.JTextField fieldHarga;
     private javax.swing.JTextField fieldKode;
     private javax.swing.JTextField fieldNamas;
     private javax.swing.JPanel input;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton insert;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable spareTabel;
+    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,12 +5,16 @@
  */
 package tapbo;
 
+import main.TAPBO;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ALOLA
  */
 public class Login extends javax.swing.JDialog {
-
+    
     /**
      * Creates new form Login
      */
@@ -31,7 +35,7 @@ public class Login extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        id = new javax.swing.JTextField();
+        user = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -44,12 +48,12 @@ public class Login extends javax.swing.JDialog {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText("ID");
+        jLabel2.setText("USER");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("PASSWORD");
 
-        id.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        user.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         password.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
@@ -57,6 +61,11 @@ public class Login extends javax.swing.JDialog {
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("LOGIN");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setText("CANCEL");
@@ -80,7 +89,7 @@ public class Login extends javax.swing.JDialog {
                         .addGap(23, 23, 23)
                         .addComponent(jButton2))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(id)
+                        .addComponent(user)
                         .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(jLabel4)
@@ -101,7 +110,7 @@ public class Login extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,6 +141,25 @@ public class Login extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            String sql = "SELECT * from kasir where user_kasir = '" + user.getText() + "' and pass_kasir = '" + password.getText() + "'";
+            ResultSet rs = TAPBO.stat.executeQuery(sql);
+            if (rs.next()) {
+                if (user.getText().equals(rs.getString("user_kasir")) && password.getText().equals(rs.getString("pass_kasir"))) {
+                    JOptionPane.showMessageDialog(null, "Selamat Datang " + rs.getString("nama_kasir"));
+                    Menu menu = new Menu();
+                    menu.setVisible(true);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Id atau Password Salah");
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,7 +204,6 @@ public class Login extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
@@ -185,5 +212,6 @@ public class Login extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField password;
+    private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,6 +11,7 @@ package tapbo;
  */
 public class HomePage extends javax.swing.JFrame {
 
+    static HomePage instance = null; 
     /**
      * Creates new form LoginUser
      */
